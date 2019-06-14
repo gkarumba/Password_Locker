@@ -25,7 +25,6 @@ class User:
     def find_by_idNumber(cls,number):
         '''
         Method that takes in a number and returns a user that matches that ID number.
-
         Args:
             number: ID number to search for
         Returns :
@@ -34,3 +33,17 @@ class User:
         for user in cls.user_list:
             if user.id == number:
                 return user
+    
+    @classmethod
+    def user_exists(cls,number):
+        '''
+        Method that checks if a user exists from the user list.
+        Args:
+            number: Phone number to search if it exists
+        Returns :
+            Boolean: True or false depending if the user exists
+        '''
+        for user in cls.user_list:
+            if user.id == number:
+                return True
+        return False
