@@ -88,3 +88,9 @@ class Credentials:
         save_cred method saves cred objects into cred_list
         '''
         Credentials.cred_list.append(self)
+    
+    def delete_cred(self):
+        '''
+        delete_cred method deletes a saved cred from the cred_list
+        '''
+        Credentials.cred_list.remove(self)
