@@ -83,4 +83,8 @@ class Credentials:
         self.userName = userName
         self.credPsw = password
     
-    
+    def save_cred(self):
+        '''
+        save_cred method saves cred objects into cred_list
+        '''
+        Credentials.cred_list.append(self)
