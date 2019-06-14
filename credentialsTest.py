@@ -44,5 +44,15 @@ class TestCredentials(unittest.TestCase):
         test_cred.save_cred()
         self.assertEqual(len(Credentials.cred_list),2)
         
+    def test_delete_cred(self):
+        '''
+        test_delete_cred to test if we can remove a cred from our cred list
+        '''
+        self.new_cred.save_cred()
+        test_cred = Credentials('Facebook','Pope','Clement')
+        test_cred.save_cred()
+        self.new_cred.delete_cred()
+        self.assertEqual(len(Credentials.cred_list), 1)
+        
 if __name__ == '__main__':
     unittest.main()
