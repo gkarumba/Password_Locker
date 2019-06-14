@@ -71,3 +71,14 @@ class User:
         method that returns the user list
         '''
         return cls.user_list
+    
+class credentials:
+    """
+    Class that generates new instance
+    """
+    credentials_list = [] #Empty credentials list
+    
+    def __init__(self,credName,password):
+        self.credName = credName
+        self.credPsw = password
+    

@@ -38,6 +38,12 @@ def display_users():
     '''
     return user.display_users()
 
+def login_user(username,password):
+    '''
+    Function that returns all the saved users
+    '''
+    return user.match_user_password(username,password)
+
 def main():
     print("Hello Welcome to your Password_Locker. Proceed to create your account")
     print("New User")
@@ -51,11 +57,12 @@ def main():
     print('\n')
     while True:
         print(f"{username}. Please log in")
-        print ("Username ....")
-        user_name = input()
         print ("Password ....")
         pass_word = input()
-        print("Use these short codes : cc - create a new contact, dc - display contacts, fc -find a contact, ex -exit the contact list ")
+        login_user(username,pass_word)
+        if login_user():
+            print("Use these short codes : ca - create a new account, da - display accounts, fc -find an account, ex -exit the user list ")
+        
         short_code = input().lower()
         if short_code == 'cc':
             print("New Contact")
