@@ -76,10 +76,11 @@ class Credentials:
     """
     Class that generates new instance
     """
-    credentials_list = [] #Empty credentials list
+    cred_list = [] #Empty credentials list
     
     def __init__(self,account,userName,password):
         self.acc = account
         self.userName = userName
         self.credPsw = password
+    
     
