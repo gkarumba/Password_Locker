@@ -49,6 +49,23 @@ class User:
         return False
 
     @classmethod
+    def match_user_password(cls,username,password):
+        '''
+        Method that checks if a username && password match.
+        Args:
+            username & password: username to search if it matches to password
+        Returns :
+            Boolean: True or false depending if the username && password match
+        '''
+        for user in cls.user_list:
+            if user.username == username:
+                user_name = user
+                if user_name.password == password:
+                    return True
+                return False
+        return False
+        
+    @classmethod
     def display_users(cls):
         '''
         method that returns the user list
