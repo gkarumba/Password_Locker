@@ -72,7 +72,7 @@ class User:
         '''
         return cls.user_list
     
-class credentials:
+class Credentials:
     """
     Class that generates new instance
     """

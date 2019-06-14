@@ -1,6 +1,6 @@
 import unittest
 # import pyperclip
-from passwordLocker import User
+from passwordLocker import User, Credentials
 
 class TestUser(unittest.TestCase):
     '''
