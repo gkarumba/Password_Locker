@@ -78,7 +78,8 @@ class Credentials:
     """
     credentials_list = [] #Empty credentials list
     
-    def __init__(self,credName,password):
-        self.credName = credName
+    def __init__(self,account,userName,password):
+        self.acc = account
+        self.userName = userName
         self.credPsw = password
     
