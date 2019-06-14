@@ -63,7 +63,7 @@ class TestUser(unittest.TestCase):
         test_user = User('2','Ferdinand','Isabella')
         test_user.save_user()
         found_user = User.find_by_idNumber('2')
-        self.assertEqual(found_user.usr,test_user.usr)          
+        self.assertEqual(found_user.user,test_user.user)          
 
     
 if __name__ == '__main__':

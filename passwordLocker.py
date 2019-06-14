@@ -20,3 +20,17 @@ class User:
         delete_user method deletes a saved user from the user_list
         '''
         User.user_list.remove(self)
+        
+    @classmethod
+    def find_by_idNumber(cls,number):
+        '''
+        Method that takes in a number and returns a user that matches that ID number.
+
+        Args:
+            number: ID number to search for
+        Returns :
+            User that matches the ID number.
+        '''
+        for user in cls.user_list:
+            if user.id == number:
+                return user
