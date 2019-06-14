@@ -58,9 +58,9 @@ class User:
             Boolean: True or false depending if the username && password match
         '''
         for user in cls.user_list:
-            if user.username == username:
+            if user.user == username:
                 user_name = user
-                if user_name.password == password:
+                if user_name.psw == password:
                     return True
                 return False
         return False

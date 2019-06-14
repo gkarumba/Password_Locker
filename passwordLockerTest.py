@@ -63,7 +63,8 @@ class TestUser(unittest.TestCase):
         test_user = User('2','Ferdinand','Isabella')
         test_user.save_user()
         found_user = User.find_by_idNumber('2')
-        self.assertEqual(found_user.user,test_user.user)          
+        self.assertEqual(found_user.user,test_user.user)      
+            
     def test_user_exists(self):
         '''
         test to check if we can return a Boolean  if we cannot find the user.
@@ -73,6 +74,16 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         user_exists = User.user_exists('2') 
         self.assertTrue(user_exists)
+    
+    def test_user_matches(self):
+        '''
+        test to check if we can return a Boolean  if we cannot match username && password.
+        '''
+        self.new_user.save_user()
+        test_user = User('2','Anne','Boleyn')
+        test_user.save_user()
+        user_matches = User.match_user_password('Anne','Boleyn')
+        self.assertTrue(user_matches)
     
     def test_display_all_users(self):
         '''
