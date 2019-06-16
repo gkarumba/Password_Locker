@@ -62,7 +62,6 @@ def main():
         login_user(username,pass_word)
         if login_user():
             print("Use these short codes : ca - create a new account, da - display accounts, fc -find an account, ex -exit the user list ")
-        
         short_code = input().lower()
         if short_code == 'cc':
             print("New Contact")

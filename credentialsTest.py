@@ -54,5 +54,24 @@ class TestCredentials(unittest.TestCase):
         self.new_cred.delete_cred()
         self.assertEqual(len(Credentials.cred_list), 1)
         
+    def test_find_cred_by_accountName(self):
+        '''
+        test to check if we can find a cred by accountName and display information
+        '''
+        self.new_cred.save_cred()
+        test_cred = Credentials('Medium','Ferdinand','Isabella')
+        test_cred.save_cred()
+        found_cred = Credentials.find_by_name('Medium')
+        self.assertEqual(found_cred.acc,test_cred.acc)
+    
+    def test_cred_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the cred.
+        '''
+        self.new_cred.save_cred()
+        test_cred = Credentials('Medium','Ferdinand','Isabella')
+        test_cred.save_cred()
+        cred_exists = Credentials.cred_exists('Medium') 
+        self.assertTrue(cred_exists) 
 if __name__ == '__main__':
     unittest.main()
