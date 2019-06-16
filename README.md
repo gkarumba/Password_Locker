@@ -12,26 +12,24 @@ As a user I would like:
 * To create an account with my details - log in and password
 * Store my existing login credentials
 * Generate a password for a new credential/account
-* Copy my credentials to the clipboard
+* find my Credentials account by name
 
 ## Specifications
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
 | Display codes for navigation | **In terminal: $./run.py** | Welcome, choose an option: ca-Create Account, li-Log In, ex-Exit |
-| Display prompt for creating an account | **Enter: ca** | Enter your first name, last name and password |
-| Display prompt for login in | **Enter: li** | Enter your account name and password |
-| Display codes for navigation | **Successful login** | Choose an option: cc - Create Credential, dc - Display Credentials, copy - Copy Credential, ex - exit |
-| Display prompt for creating a credential | **Enter: cc** | Enter the site name, your username and password |
-| Display a list of credentials | **Enter: dc** | Prints a list of saved credentials |
-| Display prompt for which credential to copy | **Enter: copy** | Enter the site name of the credential you wish to copy. |
+| Display prompt for creating an account | **Enter: ca** | Enter your Username and password |
+| Display codes for navigation | **Successful login** | Choose an option: ca - Create Credential Account, da - Display Credentials Account, fa - Find Credential Account, ex - exit |
+| Display prompt for creating a credential | **Enter: ca** | Enter the site name, your username |
+| Display a list of credentials | **Enter: da** | Prints a list of saved credentials |
+| Display prompt for which credential to find | **Enter: fa** | Enter the site name of the credential you wish to find. |
 | Exit application | **Enter: ex** | Exit the current navigation stage |
 
 ## SetUp / Installation Requirements
 ### Prerequisites
 * python3.6
 * pip
-* pyperclip
-* xclip
+
 
 ### Cloning
 * In your terminal:

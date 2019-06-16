@@ -133,3 +133,10 @@ class Credentials:
         alphabet = string.ascii_letters + string.digits
         password = ''.join(secrets.choice(alphabet) for i in range(5))
         return password
+    
+    @classmethod
+    def display_accounts(cls):
+        '''
+        method that returns the cred list
+        '''
+        return cls.cred_list
