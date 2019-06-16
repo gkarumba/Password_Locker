@@ -1,5 +1,5 @@
 !#/usr/bin/env python3.6
-from passwordLocker import User
+from passwordLocker import User, Credentials
 
 def create_user(id,username,password):
     '''
@@ -44,6 +44,37 @@ def login_user(username,password):
     '''
     return user.match_user_password(username,password)
 
+def create_account(account,userName,password):
+    '''
+    Function to create a new account
+    '''
+    new_acc = Credentials(account,userName,password)
+    return new_acc
+
+def save_acc(acc):
+    '''
+    Function to save acc
+    '''
+    acc.save_cred()
+
+def del_acc(acc):
+    '''
+    Function to delete acc
+    '''
+    acc.delete_cred()
+
+def find_acc(name):
+    '''
+    Function that finds an account and returns the account
+    '''
+    return acc.find_by_name(name)
+
+def check_existing_acc(name):
+    '''
+    Function that check if an acc exists with that name and return a Boolean
+    '''
+    return acc.cred_exists(name)
+
 def main():
     print("Hello Welcome to your Password_Locker. Proceed to create your account")
     print("New User")
@@ -64,16 +95,13 @@ def main():
             print("Use these short codes : ca - create a new account, da - display accounts, fc -find an account, ex -exit the user list ")
         short_code = input().lower()
         if short_code == 'cc':
-            print("New Contact")
+            print("New Account")
             print("-"*10)
-            print ("First name ....")
-            f_name = input()
-            print ("Last name ....")
-            l_name = input()
-            print ("Phone number ....")
-            phone = input()
-            print ("Email address ....")
-            e_address = input()
+            print ("Account name ....")
+            acc_name = input()
+            print ("User Name ....")
+            userName = input()
+            e_address = input(Credentials.generate_password())
             save_contact(create_contact(f_name,l_name,phone,e_address))
             print('\n')
             print(f"New Contact {f_name} {l_name} created")

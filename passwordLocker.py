@@ -1,3 +1,6 @@
+import secrets
+import string
+
 class User:
     """
     Class that generates new instance
@@ -121,3 +124,12 @@ class Credentials:
             if cred.acc == name:
                 return True
         return False
+    
+    @classmethod
+    def generate_password(cls):
+        '''
+        generate_password method generates passwords for the user cred accounts
+        '''
+        alphabet = string.ascii_letters + string.digits
+        password = ''.join(secrets.choice(alphabet) for i in range(5))
+        return password
