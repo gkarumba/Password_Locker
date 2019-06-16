@@ -94,3 +94,16 @@ class Credentials:
         delete_cred method deletes a saved cred from the cred_list
         '''
         Credentials.cred_list.remove(self)
+        
+    @classmethod
+    def find_by_name(cls,name):
+        '''
+        Method that takes in a name and returns a Account that matches that name.
+        Args:
+            name: name to search for
+        Returns :
+            Account that matches the name.
+        '''
+        for cred in cls.cred_list:
+            if cred.acc == name:
+                return cred
