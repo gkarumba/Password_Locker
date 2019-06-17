@@ -1,5 +1,6 @@
 import unittest
 from passwordLocker import Credentials
+import pyperclip
 
 class TestCredentials(unittest.TestCase):
     '''
@@ -73,5 +74,16 @@ class TestCredentials(unittest.TestCase):
         test_cred.save_cred()
         cred_exists = Credentials.cred_exists('Medium') 
         self.assertTrue(cred_exists) 
+        
+    def test_copy_password(self):
+        '''
+        test to check if we can return a copy of the saved password.
+        '''
+        self.new_cred.save_cred()
+        test_cred = Credentials('Medium','Ferdinand','Isabella')
+        test_cred.save_cred()
+        Credentials.copy_credential_psw('Medium')
+        self.assertEqual(pyperclip.paste(),'Isabella')
+        pyperclip.paste()
 if __name__ == '__main__':
     unittest.main()

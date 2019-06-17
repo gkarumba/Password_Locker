@@ -1,4 +1,5 @@
 import secrets
+import pyperclip
 import string
 
 class User:
@@ -126,12 +127,12 @@ class Credentials:
         return False
     
     @classmethod
-    def generate_password(cls):
+    def generate_password(cls,length):
         '''
         generate_password method generates passwords for the user cred accounts
         '''
         alphabet = string.ascii_letters + string.digits
-        password = ''.join(secrets.choice(alphabet) for i in range(5))
+        password = ''.join(secrets.choice(alphabet) for i in range(length))
         return password
     
     @classmethod
@@ -140,3 +141,12 @@ class Credentials:
         method that returns the cred list
         '''
         return cls.cred_list
+    
+    @classmethod
+    def copy_credential_psw(cls,acc_name):
+        '''
+		Class method that copies a credential password based on the credential name
+		'''
+        searchCred = Credentials.find_by_name(acc_name)
+        return pyperclip.copy(searchCred.credPsw) 
+		

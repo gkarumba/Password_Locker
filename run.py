@@ -81,6 +81,12 @@ def display_accounts():
     '''
     return Credentials.display_accounts()
 
+def copy_password(name):
+    '''
+    Function that copies a specific account's password
+    '''
+    return Credentials.copy_credential_psw(name)
+
 def main():
     print("Welcome to your Password_Locker. Proceed to create your account")
     print("New User")
@@ -98,47 +104,58 @@ def main():
         pass_word = input()
         # login_user(username,pass_word)
         if login_user(username,pass_word):
-            print("Use these short codes : ca - create a new account, da - display accounts, fa -find an account, ex -exit the cred list ")
-        short_code = input().lower()
-        if short_code == 'ca':
-            print("New Account")
-            print("-"*10)
-            print ("Account name ....")
-            acc_name = input()
-            print ("User Name ....")
-            userName = input()
-            password = Credentials.generate_password()
-            save_acc(create_account(acc_name,userName,password))
-            print('\n')
-            print(f"New Account for {acc_name} with the username: {userName} has been created successfully")
-            print ('\n')
-        elif short_code == 'da':
-            if display_accounts():
-                print("Here is a list of all your accounts")
+            print("Use these short codes : ca - create a new account, da - display accounts, fa -find an account, cc -copy the password, ex -exit the cred list ")
+            short_code = input().lower()
+            if short_code == 'ca':
+                print("New Account")
+                print("-"*10)
+                print ("Account name ....")
+                acc_name = input()
+                print ("User Name ....")
+                userName = input()
+                print ("Enter preffered password length ....")
+                pswLength = int(input())
+                password = Credentials.generate_password(pswLength)
+                save_acc(create_account(acc_name,userName,password))
                 print('\n')
-                for account in display_accounts():
-                    print(f"{account.acc} {account.userName} .....{account.credPsw}")
+                print(f"New Account for {acc_name} with the username: {userName} has been created successfully")
+                print ('\n')
+            elif short_code == 'da':
+                if display_accounts():
+                    print("Here is a list of all your accounts")
                     print('\n')
+                    for account in display_accounts():
+                        print(f"{account.acc} {account.userName} .....{account.credPsw}")
+                        print('\n')
+                else:
+                    print('\n')
+                    print("You dont seem to have any accounts saved yet")
+                    print('\n')
+            elif short_code == 'fa':
+                print("Enter the account name you want to search for")
+                search_name = input()
+                if check_existing_acc(search_name):
+                    search_account = find_acc(search_name)
+                    print(f" Account Name:{search_account.acc}")
+                    print('-' * 20)
+                    print(f"Username.......{search_account.userName}")
+                    print(f"Account Password.......{search_account.credPsw}")
+                else:
+                    print("That Account does not exist")
+            elif short_code == 'cc':
+                print("Enter the account name you want to copy the password")
+                copy_psw = input()
+                if check_existing_acc(copy_psw):
+                    password_copy = copy_password(copy_psw)
+                    print(f"Password for {copy_psw} has been copied")
+                    print('-' * 20)
+                else:
+                    print("That Account does not exist")
+            elif short_code == 'ex':
+                print('You are now exiting the app ...........')
             else:
-                print('\n')
-                print("You dont seem to have any accounts saved yet")
-                print('\n')
-        elif short_code == 'fa':
-            print("Enter the account name you want to search for")
-            search_name = input()
-            if check_existing_acc(search_name):
-                search_account = find_acc(search_name)
-                print(f" Account Name:{search_account.acc}")
-                print('-' * 20)
-                print(f"Username.......{search_account.userName}")
-                print(f"Account Password.......{search_account.credPsw}")
-            else:
-                print("That Account does not exist")
-        elif short_code == 'ex':
-            print('You are now exiting the app ...........')
+                print("I really didn't get that. Please use the short codes")
         else:
-            print("I really didn't get that. Please use the short codes")
-    
-    
+            print('Username and password do not match.Please try again ') 
 if __name__ == '__main__':
     main()
