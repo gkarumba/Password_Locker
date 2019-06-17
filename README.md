@@ -17,6 +17,7 @@ As a user I would like:
 ## Specifications
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
+
 | Display codes for navigation | **In terminal: $./run.py** | Welcome to the app |
 | Display prompt for creating an account | **Enter: ca** | Enter your Username and password |
 | Display codes for navigation | **Successful login** | Choose an option: ca - Create Credential Account, da - Display Credentials Account, fa - Find Credential Account, cc -copy the password, ex - exit |
@@ -53,5 +54,5 @@ As a user I would like:
 * Python3.6
 
 ## License
-MIT &copy;2019 [gkarumba](https://github.com/gkarumba/)
+MIT &copy;2019 [gkarumba](https://github.com/gkarumba/Password_Locker/blob/master/LICENSE)
 
