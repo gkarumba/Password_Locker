@@ -17,14 +17,13 @@ As a user I would like:
 ## Specifications
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
-
-| Display codes for navigation | **In terminal: $./run.py** | Welcome to the app |
-| Display prompt for creating an account | **Enter: ca** | Enter your Username and password |
-| Display codes for navigation | **Successful login** | Choose an option: ca - Create Credential Account, da - Display Credentials Account, fa - Find Credential Account, cc -copy the password, ex - exit |
-| Display prompt for creating a credential | **Enter: ca** | Enter the site name, your username |
+| Display welcome message | **In terminal: $./run.py** | Welcome to the app |
+| Display prompt for creating an account | Enter: Username & password | Enter your Username and password |
+| Display codes for navigation | Successful login | Choose an option: ca - Create Credential Account, da - Display Credentials Account, fa - Find Credential Account, cc -copy the password, ex - exit | 
+| Display prompt for creating a credential | **Enter: ca** | Enter the site name, your username and password |
 | Display a list of credentials | **Enter: da** | Prints a list of saved credentials |
-| Copy the user's account password | **Enter: cc** | Prints password for the account has been copied |
-| Display prompt for which credential to find | **Enter: fa** | Enter the site name of the credential you wish to find. |
+| Display prompt for which credential to copy | **Enter: cc** | Enter the site name of the credential you wish to copy. |
+| Display prompt for which credential to find | **Enter: fa** | Enter the site name of the credential you wish to find. | 
 | Exit application | **Enter: ex** | Exit the current navigation stage |
 
 ## SetUp / Installation Requirements
